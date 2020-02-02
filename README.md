@@ -47,19 +47,19 @@ Till höger på arbetsytan visas en förminskad bild av hela filens innehåll s�
 
 #### Bra redigeringkommandon att komma ihåg
 
-* `Alt+Pil Upp` och `Alt+Pil Ner` flyttar raden man står på uppåt eller nedåt
-* `Shift+Alt+Pil Upp` och `Shift+Alt+Pil Ner` skapar en kopia av raden man står på ovanför eller under
-* `Ctrl+Shift+K` tar bort raden man har sin cursor på
-* `Ctrl+K Ctrl+C` Kommentarsmarkerar raden man står på eller alla markerade rader om flera är markerade
-* `Ctrl+K Ctrl+U` Tar bort kommentarsmarkering på raden man står på eller alla rader om flera är markerade
-* `Ctrl+J` Togglar panelen för *Problems*, *Output*, *Debug consol* och *Terminal*
+* `Alt`+`Pil Upp` och `Alt`+`Pil Ner` flyttar raden man står på uppåt eller nedåt
+* `Shift`+`Alt`+`Pil Upp` och `Shift`+`Alt`+`Pil Ner` skapar en kopia av raden man står på ovanför eller under
+* `Ctrl`+`Shift`+`K` tar bort raden man har sin cursor på
+* `Ctrl`+`K` `Ctrl`+`C` Kommentarsmarkerar raden man står på eller alla markerade rader om flera är markerade
+* `Ctrl`+`K` `Ctrl`+`U` Tar bort kommentarsmarkering på raden man står på eller alla rader om flera är markerade
+* `Ctrl`+`J` Togglar panelen för *Problems*, *Output*, *Debug consol* och *Terminal*
 
 ##### *Multi cursor*-funktioner
 
-* `Ctrl+Shift+L` markerar alla förekomster av ordet man har sin cursor över eller har markerat
-* `Ctrl+D` markerar ordet man har sin cursor över. Om ordet redan är markerat så markeras nästa förekomst av ordet
+* `Ctrl`+`Shift`+`L` markerar alla förekomster av ordet man har sin cursor över eller har markerat
+* `Ctrl`+`D` markerar ordet man har sin cursor över. Om ordet redan är markerat så markeras nästa förekomst av ordet
 
-När flera ord är markerade samtidigt och skriver något så ändras alla markerade ord samtidigt. Nedan bild visar när jag trycker **Ctrl+D** ett antal gånger och sedan skriver.
+När flera ord är markerade samtidigt och skriver något så ändras alla markerade ord samtidigt. Nedan bild visar när jag trycker `Ctrl`+`D` ett antal gånger och sedan skriver.
 
 ![Multi cursor image](images/multicursor.gif)
 
@@ -67,15 +67,15 @@ För att läsa mer om alla kommandon i VS Code, gör så här...
 
 ![Keyboard Shortcuts](images/keyboard-shortcuts.gif)
 
-VS Code har inte alla kommandon i menyn utan man når dem genom att trycka `Ctrl+Shift+P`. En lista med alla kommandon visas och genom att skriva det man är ute efter filtreras de kommandon man är ute efter fram i listan.
+VS Code har inte alla kommandon i menyn utan man når dem genom att trycka `Ctrl`+`Shift`+`P`. En lista med alla kommandon visas och genom att skriva det man är ute efter filtreras de kommandon man är ute efter fram i listan.
 
 ### *IntelliSence*
 
-IntelliSence hjälper till och ger förslag på vad du ska skriver i koden. Exempelvis kan du börja skriva ett tabellnamn så som ```T01```. Då visas en lista med alla tabeller som börjar på T01. Samma gäller även för variabler, procedurer och funktioner, börjar man skriva ett namn så visas en lista med möjliga alternativ. Det här gör att det blir färre stavfel och kodskrivandet går klart snabbare.
+IntelliSence hjälper till och ger förslag på vad du ska skriver i koden. Exempelvis kan du börja skriva ett tabellnamn så som `T01`. Då visas en lista med alla tabeller som börjar på T01. Samma gäller även för variabler, procedurer och funktioner, börjar man skriva ett namn så visas en lista med möjliga alternativ. Det här gör att det blir färre stavfel och kodskrivandet går klart snabbare.
 
 Om du är osäker på vad en varaiabel har för datatyp är det bara att ställa muspekaren över variablen så visas datatypen och var den är deklarerad.
 
-Om du behöver veta vad en procedur eller funktion gör, ställ markören på procedur- eller funktions-namnet och klicka `F12` så hoppar du direkt till definitionen av proceduren eller funktionen. Tryck `Alt+Pil vänster` för att hoppa tillbaka till ursprung position igen.
+Om du behöver veta vad en procedur eller funktion gör, ställ markören på procedur- eller funktions-namnet och klicka `F12` så hoppar du direkt till definitionen av proceduren eller funktionen. Tryck `Alt`+`Pil vänster` för att hoppa tillbaka till ursprung position igen.
 
 ### *Code outline*
 
@@ -220,7 +220,7 @@ end function.
 
 ### Tabellfunktioner
 
-För att snabbt skriva en tabellkommando så som exempelvis `for each...` eller `find first...` går det att markera ett tabellnamn i koden och trycka `Ctrl+Alt+T`. Välj tabellkommando så byts tabellnamnet i koden ut mot ett helt kod-uttryck.
+För att snabbt skriva en tabellkommando så som exempelvis `for each...` eller `find first...` går det att markera ett tabellnamn i koden och trycka `Ctrl`+`Alt`+`T`. Välj tabellkommando så byts tabellnamnet i koden ut mot ett helt kod-uttryck.
 
 
 Till tabellfunktionen för `for each` kan man lägga till tre parametrar.
@@ -229,7 +229,7 @@ Till tabellfunktionen för `for each` kan man lägga till tre parametrar.
 * f - Skapar kod för att skriva en lista med tabellens innehåll till en fil
 * b - Lägger till kod för att begränsa resultatet.
 
-Om du exempelvis markerar `T04master,f` och trycker `Ctrl+Alt+T` och väljer `for each` visas:
+Om du exempelvis markerar `T04master,f` och trycker `Ctrl`+`Alt`+`T` och väljer `for each` visas:
 
 ```abl
 for each T04master no-lock
@@ -239,7 +239,7 @@ for each T04master no-lock
 end.
 ```
 
-Parametrarna kan också kombineras. Om du exempelvis markerar `T04master,w,f` och trycker `Ctrl+Alt+T` och väljer `for each` visas:
+Parametrarna kan också kombineras. Om du exempelvis markerar `T04master,w,f` och trycker `Ctrl`+`Alt`+`T` och väljer `for each` visas:
 
 ```abl
 define stream utf.
@@ -264,16 +264,20 @@ end.
 output stream utf close.
 ```
 
-För att visa information om en tabell, markera tabellens namn (utan parametrar) och tryck `Shift+Ctrl+Alt+T`. Informaitonen visas i nedre delen av skärmen.
+För att visa information om en tabell, markera tabellens namn (utan parametrar) och tryck `Shift`+`Ctrl`+`Alt`+`T`. Informaitonen visas i nedre delen av skärmen.
 
 ![Table information](images/tableinfo.png)
+
+För att visa vilka tabeller som innehåller ett specifikt fält, markera fältnamnet, tryck `Ctrl`+`Alt`+`P` och vält kommandot `LF-Tools: Show tables that contains selected field`. Informaitonen visas i nedre delen av skärmen.
+
+![Tables for field](images/tables_for_field.png)
 
 ### *Integration med Progress OpenEdge*
 
 Integrationen är byggd med hjälp av funktioner i Winenv2 för att hämta paramertar och inställningar för vald miljö. Detta är gjort för att inte behöva installera om och göra nya inställningar när en ny miljö skapas eller flyttas.
 
 Alla Progress-kommandon körs mot en förvald Progressmiljö. Som default är PT1 förvald. Det här betyder att kompilering och kör görs i PT1.
-Tryck `Ctrl+Shift+P`och välj kommando **LF-Tools: Select working environment** *(Alla kommandon är på engelska för att VS Code inte klarar av att visa ÅÄÖ i kommandolistan)*. En lista visas då med de miljöer som är tillgängliga. Listan hämtas från Winenv vid start av VS Code. Längst ner i vänstra hörnet på skärmen visas vald miljö.
+Tryck `Ctrl`+`Shift`+`P`och välj kommando **LF-Tools: Select working environment** *(Alla kommandon är på engelska för att VS Code inte klarar av att visa ÅÄÖ i kommandolistan)*. En lista visas då med de miljöer som är tillgängliga. Listan hämtas från Winenv vid start av VS Code. Längst ner i vänstra hörnet på skärmen visas vald miljö.
 
 ![Selected environment](images/selectedenv.PNG)
 
@@ -281,17 +285,17 @@ Det går också att klicka på texten *Combi Förvaltning PT1* för att visa lis
 
 ![Select environment](images/select-env.gif)
 
-För att göra det enklare att byta till VS Code från Progress-editorn finns de två mest använda kommandona med även i LF-Tools, `F2` för att köra program och `Shift+F2` för att kontrollera syntax (kompilera).
+För att göra det enklare att byta till VS Code från Progress-editorn finns de två mest använda kommandona med även i LF-Tools, `F2` för att köra program och `Shift`+`F2` för att kontrollera syntax (kompilera).
 
 #### Kontrollera syntax (kompilera)
 
-När ett program sparas körs en syntax check mot vald miljö. Resultatet syns i nedre vänstra hörnet, bredvid namnet på den valda miljön. Om fel uppstår markeras raden med felet. Kontroll av syntax görs vid spara eller när man trycker `Shift+F2`.
+När ett program sparas körs en syntax check mot vald miljö. Resultatet syns i nedre vänstra hörnet, bredvid namnet på den valda miljön. Om fel uppstår markeras raden med felet. Kontroll av syntax görs vid spara eller när man trycker `Shift`+`F2`.
 
 ![Select environment](images/syntax-check.gif)
 
 #### Kör program
 
-Det finns två sätt att köra program, antingen med `F2` där eventuellt resultat visas i ett Progress-fönster eller genom att trycka `Alt+F2` för att visa resultatet direkt i VS Code. **Observera att den senast sparade koden är den som körs. Det betyder att du måste spara innan du kör.** Detta är en skillnad från att köra direkt i Procedure editor. 
+Det finns två sätt att köra program, antingen med `F2` där eventuellt resultat visas i ett Progress-fönster eller genom att trycka `Alt`+`F2` för att visa resultatet direkt i VS Code. **Observera att den senast sparade koden är den som körs. Det betyder att du måste spara innan du kör.** Detta är en skillnad från att köra direkt i Procedure editor. 
 
 Propath kommer alltid peka på den aktuella arbetskatalogen plus den ordinarie propathen för vald miljö. Det här gör att man inte längre är beroende av att alltid utveckla program i C:\Combi för Combi och C:\TureUtv för Ture. Det går att skapa många olika arbetskataloger.
 
@@ -311,11 +315,11 @@ Det aktuella programmet måste vara sparat annars kommer det senast sparade vers
 
 ##### Kör via Alt+F2
 
-Genom att köra med `Alt+F2` visas resultat direkt i VS Code. Det kan vara bra i de fall men vill kopiera något värde ur resultatet av utsökningen. VS Code stöder tyvärr inte ÅÄÖ i resultatet så dessa visas som konstiga tecken som bilden nedan visar.
+Genom att köra med `Alt`+`F2` visas resultat direkt i VS Code. Det kan vara bra i de fall men vill kopiera något värde ur resultatet av utsökningen. VS Code stöder tyvärr inte ÅÄÖ i resultatet så dessa visas som konstiga tecken som bilden nedan visar.
 
 ![Run with Alt+F2](images/run-with-alt-f2.png)
 
-Om du inte vill fortsätta visa Output-panelen är det bara att trycka `Ctrl+J` för att stänga den.
+Om du inte vill fortsätta visa Output-panelen är det bara att trycka `Ctrl`+`J` för att stänga den.
 
 #### Öppna i Progress-editor
 
@@ -323,7 +327,7 @@ Ibland vill man kanske öppna det program man jobbar med i Progress-editorn ist�
 
 #### Start en Combi- eller Ture-miljö
 
-Klicka på `Ctrl+Alt+P` för att få upp en lista över valbara miljöer. Miljön startas med propath till den aktuella arbetskatalogen plus den ordinarie propathen för vald miljö.
+Klicka på `Ctrl`+`Alt`+`P` för att få upp en lista över valbara miljöer. Miljön startas med propath till den aktuella arbetskatalogen plus den ordinarie propathen för vald miljö.
 
 ### Integration med TFS
 
@@ -333,15 +337,21 @@ Integrationen med TFS innehåller än så länge bara två funktioner, jämför 
 
 Ibland när man gjort större ändringar i ett program vill man kontrollera skillnaden mot den tidigare versionen för att se att man inte ändrat något man inte borde ha ändrat. Det här är väldigt enkelt i VS Code med LF-Tools.
 
-Ha det aktuella progammet öppet och sparat i VS Code och tryck bara `Ctrl+Alt+C` så visas ett diff-fönster. Alternativt kan man trycka `Ctrl+Shift+P` och sedan välja funktionen **LF-Tools: Compare current file with file in source control**.
+Ha det aktuella progammet öppet och sparat i VS Code och tryck bara `Ctrl`+`Alt`+`C` så visas ett diff-fönster. Alternativt kan man trycka `Ctrl`+`Shift`+`P` och sedan välja funktionen **LF-Tools: Compare current file with file in source control**.
 
 ![Compare programs](images/compare.gif)
 
 #### Öppna program
 
-Om man, som i exemplet nedan, är intresserad av vad programmet ```batprgi.p``` gör kan man ställa markören på progamnamnet och trycka `Ctrl+Alt+O`. Programmet öppnas då från TFS-katalogen i en egen flik. Man behöver med andra ord inte markera hela programmet, även om det också fungerar.
+Om man, som i exemplet nedan, är intresserad av vad programmet ```batprgi.p``` gör kan man ställa markören på progamnamnet och trycka `Ctrl`+`Alt`+`O`. Programmet öppnas då från TFS-katalogen i en egen flik. Man behöver med andra ord inte markera hela programmet, även om det också fungerar.
 
 ![Open TFS program](images/open-tfs.gif)
+
+### Alla kommandon i LF-Tools
+
+Här är listan med alla kommandon som idag finns i LF-Tools:
+
+![Multi cursor image](images/lftools_commands.png)
 
 ## Inställningar
 
@@ -410,6 +420,6 @@ För tillfället finns det inga kända fel.
 
 ## Release Notes
 
-### 0.1.0
+### 0.1.1
 
 Första releasen av LF-Tools extension för VS Code.
