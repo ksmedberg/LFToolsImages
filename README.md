@@ -81,6 +81,193 @@ Om du behöver veta vad en procedur eller funktion gör, ställ markören på pr
 
 I nedre vänstra hörnet av arbetsytan visas en **OUTLINE** av programmet som är aktivt i editorn. För .p och .w program visas procedurer och funktioner. För klasser visas properties, konstruktor och metoder. Genom att klicka en gång på en rad i **OUTLINE** hoppar fokus till symbolen i koden. Dubbelklicka för att även fokusera cursorn till koden. Listan med **OUTLINE** uppdateras löpande när programmet redigeras, men med en viss fördröjning.
 
+### *Snippets*
+
+För att underlätta kodandet ytterligare finns det ett antal *Snippets* som byter ut det du skrivit mot ett block av kod. Skriv en av nedanstående *Snippets* och tryck `Tab` och koden "vecklar ut sig". En *Snippet* kan bestå av variabler som kan fyllas i. Hoppas med `Tab` för att komma till nästa variabel. Tryck även `Tab` efter att ha fyllt i sista variabeln för att slutföra *Snippeten*.
+
+![Snippet example](images/snippet_example.gif)
+
+Dessa *Snippets* finns definierade och ger följande kod:
+
+#### head
+
+```abl
+/**************************************************************************
+ * Program:    test.p
+ * Beskrivning:
+ *
+ *
+ * Skrivet av:
+ * Datum:      2020-02-02
+ *
+ * �ndringslogg:
+ **************************************************************************/
+```
+
+**Observera** att "Ä" i Ändringslogg blir fel. Det här beror på att *Snippets* skrivs med en annan encoding än Porgress-koden. Det är bara att ändra det konstaiga tecknet till ett "Ä".
+
+#### def
+
+```abl
+define variable myVar as character no-undo.
+```
+
+#### dp
+
+```abl
+define input parameter varName as character no-undo.
+```
+
+#### buf
+
+```abl
+define buffer buffer for table.
+```
+
+#### ifa
+
+```abl
+if available table then
+do:
+
+end.
+```
+
+#### om
+
+```abl
+for each t01objekt no-lock
+   where t01objekt.avtalnr = avtalnr
+     and t01objekt.kundnr = kundnr,
+    each t01moment no-lock
+   where t01moment.kundnr = t01objekt.kundnr
+     and t01moment.objektnr = t01objekt.objektnr
+     and (t01moment.aors = 0 or (t01moment.aors > 0 and t01moment.dattill > today)):
+
+end.
+```
+
+#### dso
+
+```abl
+define stream utf.
+output stream utf to "C:\Code\Progress\Combi\utdata\outputfile.txt".
+put stream utf unformatted output skip.
+output stream utf close.
+```
+
+#### dsi
+
+```abl
+define stream inf.
+define variable inrad as character no-undo.
+input stream inf from "filename".
+repeat
+    import stream inf unformatted inrad.
+    inrad = trim(inrad).
+    if inrad <> "" then
+    do:
+
+    end.
+end.
+input stream inf close.
+```
+
+#### inp
+
+```abl
+input varName as character
+```
+
+Den här är bra när man ska lägga till parametrar till functioner och metoder.
+
+#### mb
+
+```abl
+message "message" view-as alert-box.
+```
+
+#### tt
+
+```abl
+define temp-table ttName no-undo
+    field fieldName as character.
+```
+
+#### ttf
+
+```abl
+field fieldName as character.
+```
+
+#### proc
+
+```abl
+procedure procName:
+
+end procedure.
+
+```
+
+#### func
+
+```abl
+function functionName returns character (input parameterName as character):
+
+    return.
+end function.
+```
+
+### Tabellfunktioner
+
+För att snabbt skriva en tabellkommando så som exempelvis `for each...` eller `find first...` går det att markera ett tabellnamn i koden och trycka `Ctrl+Alt+T`. Välj tabellkommando så byts tabellnamnet i koden ut mot ett helt kod-uttryck.
+
+
+Till tabellfunktionen för `for each` kan man lägga till tre parametrar.
+
+* w - Denna ger en where-sats med fälten från tabellens primärindex.
+* f - Skapar kod för att skriva en lista med tabellens innehåll till en fil
+* b - Lägger till kod för att begränsa resultatet.
+
+Om du exempelvis markerar `T04master,f` och trycker `Ctrl+Alt+T` och väljer `for each` visas:
+
+```abl
+for each T04master no-lock
+   where T04master.land = 
+     and T04master.datfrom = :
+    disp T04master with 2 col.
+end.
+```
+
+Parametrarna kan också kombineras. Om du exempelvis markerar `T04master,w,f` och trycker `Ctrl+Alt+T` och väljer `for each` visas:
+
+```abl
+define stream utf.
+output stream utf to "c:\Code\Progress\Combi\utdata\list_T04master.csv".
+put stream utf unformatted "aktiv;basbelop2;basbelop3;basbelopp;belopp;datfrom;divisor;kurs;land;rader;valuta" skip.
+for each T04master no-lock
+   where T04master.land =
+     and T04master.datfrom = :
+    put stream utf unformatted
+        T04master.aktiv ";"
+        T04master.basbelop2 ";"
+        T04master.basbelop3 ";"
+        T04master.basbelopp ";"
+        string(T04master.belopp, "->>>,>>>,>>9.99") ";"
+        string(T04master.datfrom, "9999-99-99") ";"
+        string(T04master.divisor, ">>>,>>9.99") ";"
+        string(T04master.kurs, "->>,>>9.99") ";"
+        T04master.land ";"
+        T04master.rader ";"
+        T04master.valuta skip.
+end.
+output stream utf close.
+```
+
+För att visa information om en tabell, markera tabellens namn (utan parametrar) och tryck `Shift+Ctrl+Alt+T`. Informaitonen visas i nedre delen av skärmen.
+
+![Table information](images/tableinfo.png)
+
 ### *Integration med Progress OpenEdge*
 
 Integrationen är byggd med hjälp av funktioner i Winenv2 för att hämta paramertar och inställningar för vald miljö. Detta är gjort för att inte behöva installera om och göra nya inställningar när en ny miljö skapas eller flyttas.
@@ -88,7 +275,9 @@ Integrationen är byggd med hjälp av funktioner i Winenv2 för att hämta param
 Alla Progress-kommandon körs mot en förvald Progressmiljö. Som default är PT1 förvald. Det här betyder att kompilering och kör görs i PT1.
 Tryck `Ctrl+Shift+P`och välj kommando **LF-Tools: Select working environment** *(Alla kommandon är på engelska för att VS Code inte klarar av att visa ÅÄÖ i kommandolistan)*. En lista visas då med de miljöer som är tillgängliga. Listan hämtas från Winenv vid start av VS Code. Längst ner i vänstra hörnet på skärmen visas vald miljö.
 
-![Selected environment](images/selectedenv.png)
+![Selected environment](images/selectedenv.PNG)
+
+Det går också att klicka på texten *Combi Förvaltning PT1* för att visa listan med valbara miljöer.
 
 ![Select environment](images/select-env.gif)
 
